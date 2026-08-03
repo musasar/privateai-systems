@@ -1,0 +1,27 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[functions]
+  node_bundler = "esbuild"
+
+# Netlify Forms - email notifications to mmusa.sr@gmail.com
+[forms]
+  [forms.contact]
+    name = "contact"
+    email = "mmusa.sr@gmail.com"
+    subject = "New PrivateAI Consultation Request"
+    spam_filter = "honeypot"
+    honeypot_field = "bot-field"
+    # Optional: redirect after successful submission
+    # redirect = "/thank-you"
+
+# Environment variables for production
+[build.environment]
+  NODE_VERSION = "20"
+  ASTRO_TELEMETRY_DISABLED = "1"
